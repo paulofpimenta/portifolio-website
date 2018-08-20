@@ -138,4 +138,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Name of the folder in the website to acess media
 MEDIA_URL = '/media/'
 
-
+try:
+    local_settings import *
+except ImportError:
+    pass
