@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Paulo Pimenta</title>
+    <title>{{ blog.title}}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -64,19 +64,13 @@
 
     <main role="main">
         <div class="container">
-            <h1 class="text-center pt-3">Welcome to Paulo's Blog</h1>
-            <br />
-            <br />
-            <h3>Latest posts</h3>
-            <br /> {% for blog in allblogs.all%}
-            <a href="{%url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
-            <!-- <h4>{{ blog.pub_date|date:"D, d M Y" }}</h4> !-->
-            <h4>{{ blog.pub_date_pretty}}</h4>
-            <br />
-            <img src="{{ blog.image.url }}" class="img-fluid" height="200" width="200">
-            <br />
-            <br /> {{ blog.summary }}
-            <hr /> {% endfor %}
+            
+            <h1 class="text-center pt-3">{{blog.title}}</h4>
+            <p class="text-center">{{ blog.pub_date_pretty}}</p>
+            <img class="img-fluid" src="{{ blog.image.url }}"/>
+            <br /> 
+            <br /> 
+            <p>{{ blog.body }}</p>
         </div>
     </main>
 
