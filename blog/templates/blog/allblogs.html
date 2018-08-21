@@ -1,104 +1,27 @@
-<html lang="en">
+{% extends 'base.html' %} 
 
-<head>
-    {% load staticfiles %}
+{% block nav-item %}
+<a class="nav-item nav-link" href="{% url 'jobs' %}">Portfolio</a>
+<a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
+{% endblock %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Paulo Pimenta</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" integrity="sha256-rnmbX+ZXZml9xbNUKt/qXfgpCi6zLJX7qqR+7vX/1ZY="
-        crossorigin="anonymous" />
-</head>
-
-<body>
-
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">Paulo Pimenta</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <!-- Resume and Blog-->
-                    <a class="nav-item nav-link" href="{% static 'paulo_pimenta_cv_resume.pdf' %}">Resume</a>
-                    <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
-                    <!-- Twitter-->
-                    <a class="nav-item nav-link">
-                        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/paulofpimenta" style="color: #fff ; background-color:black">
-                            <span class="fa fa-twitter"></span>
-                        </a>
-                    </a>
-                    <!-- Linkedin-->
-                    <a class="nav-item nav-link">
-                        <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/paulo-pimenta" style="color: #fff ; background-color:black">
-                            <span class="fa fa-linkedin"></span>
-                        </a>
-                    </a>
-                    <!-- Github-->
-                    <a class="nav-item nav-link">
-                        <a class="btn btn-social-icon btn-github" href="https://github.com/paulofpimenta" style="color: #fff ; background-color:black">
-                            <span class="fa fa-github"></span>
-                        </a>
-                    </a>
-                    <!-- Slack-->
-                    <a class="nav-item nav-link">
-                        <a class="btn btn-social-icon btn-slack" href="https://paulopimenta.slack.com" style="color: #fff ; background-color:black">
-                            <span class="fa fa-slack"></span>
-                        </a>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main role="main">
-        <div class="container">
-            <h1 class="text-center pt-3">Welcome to Paulo's Blog</h1>
-            <br />
-            <br />
-            <h3>Latest posts</h3>
-            <br /> {% for blog in allblogs.all%}
-            <a href="{%url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
-            <!-- <h4>{{ blog.pub_date|date:"D, d M Y" }}</h4> !-->
-            <h4>{{ blog.pub_date_pretty}}</h4>
-            <br />
-            <img src="{{ blog.image.url }}" class="img-fluid" height="200" width="200">
-            <br />
-            <br /> {{ blog.summary }}
-            <hr /> {% endfor %}
-        </div>
-    </main>
-
-    <footer class="text-muted">
-        <div class="container text-center">
-            <p>© Copyright Paulo Pimenta {% now "Y" %}</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript
-        ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="208" height="225" viewBox="0 0 208 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs>
-            <style type="text/css"></style>
-        </defs><text x="0" y="11" style="font-weight:bold;font-size:11pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
-
-</html>
+{% block content %}
+    <div class="container">
+        <h1 class="text-center pt-3">Welcome to Paulo's Blog</h1>
+        <br />
+        <br />
+        <h3>Latest posts</h3>
+        <br /> 
+        {% for blog in allblogs.all%}
+        <a href="{%url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+        <!-- <h4>{{ blog.pub_date|date:"D, d M Y" }}</h4> !-->
+        <h4>{{ blog.pub_date_pretty}}</h4>
+        <br />
+        <img src="{{ blog.image.url }}" class="img-fluid" height="200" width="200">
+        <br />
+        <br /> 
+        {{ blog.summary }}
+        <hr /> 
+        {% endfor %}
+    </div>
+{% endblock %}
