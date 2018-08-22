@@ -9,13 +9,6 @@
 {% block meta-url%}<meta property="og:url" content="{{ request.build_absolute_uri }}" />{% endblock %}
 
 
-<!-- Schema.org markup for Twitter+ -->
-<meta name="twitter:card" content="{{ blog.summary }}">
-<meta name="twitter:title" content="{{blog.title}}">
-<meta name="twitter:description" content="{{ blog.summary }}">
-<meta name="twitter:creator" content="@paulofpimenta">
-<meta name="twitter:image:src" content="{{blog.image.url}}"> 
-
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="name" content="{{blog.title}}">
 <meta itemprop="description" content="{{ blog.summary }}">
