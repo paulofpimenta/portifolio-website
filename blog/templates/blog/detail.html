@@ -1,12 +1,19 @@
 {% extends 'blog/allblogs.html' %}
 <!-- Django does not extend static files and some other stuff-->
 
-{% load staticfiles %} {% block nav-item %}
+{% load staticfiles %} 
+
+{% block meta-title%}<meta property="og:title"  content="{{blog.title}}" />{% endblock %}
+{% block meta-description%}<meta property="og:description" content="{{ blog.body }}" />{% endblock %}
+{% block meta-image%} <meta property="og:image" content="{{ blog.image.url }}" /> {% endblock %} 
+
+
+
+{% block nav-item %}
 <a class="nav-item nav-link" href="{% url 'jobs' %}">Portfolio</a>
 <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
 {% endblock %} 
 
-{% block meta-image%} <meta property="og:image" content="{{ blog.image.url }}" /> {% endblock %} 
 
 {% block content %}
 
