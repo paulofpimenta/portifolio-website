@@ -7,7 +7,8 @@
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Let's code GIS!" />
     <meta property="og:description"   content="A GIS blog!" />
-    <meta property="og:image"         content="{% static 'logo.png' %}" />
+    {% block meta-image%}<meta property="og:image" content="{% static 'logo.png' %}" />{% endblock %}
+
     <link rel="icon" href="../../../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"

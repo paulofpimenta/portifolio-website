@@ -4,8 +4,11 @@
 {% load staticfiles %} {% block nav-item %}
 <a class="nav-item nav-link" href="{% url 'jobs' %}">Portfolio</a>
 <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
-{% endblock %} {% block content %}
+{% endblock %} 
 
+{% block meta-image%} <meta property="og:image" content="{{ blog.image.url }}" /> {% endblock %} 
+
+{% block content %}
 
 <!-- Page Content -->
 <div class="container">
