@@ -3,10 +3,10 @@
 
 <head>
     {% load staticfiles %}
-    <meta property="og:url"           content="https://ouicodegis.com" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Let's code GIS!" />
-    <meta property="og:description"   content="A GIS blog!" />
+  
+    {% block meta-title%}<meta property="og:title"         content="Let's code GIS!" />{% endblock %}
+    {% block meta-description%}<meta property="og:description"   content="A GIS blog!" />{% endblock %}
+    {% block meta-url%}<meta property="og:url" content="{{ request.build_absolute_uri }}" />{% endblock %}
     {% block meta-image%}<meta property="og:image" content="{% static 'logo.png' %}" />{% endblock %}
 
     <link rel="icon" href="../../../../favicon.ico">

@@ -3,11 +3,26 @@
 
 {% load staticfiles %} 
 
-{% block meta-title%}<meta property="og:title"  content={{blog.title}} />{% endblock %}
+{% block meta-title%}<meta property="og:title" content={{blog.title}} />{% endblock %}
 {% block meta-description%}<meta property="og:description" content="{{ blog.summary }}" />{% endblock %}
-{% block meta-image%} <meta property="og:image" content="{{ blog.image.url }}" /> {% endblock %} 
+{% block meta-image%} <meta property="og:image" content="{{blog.image.url}}" /> {% endblock %} 
 
+<!-- Schema.org markup for Twitter+ -->
+<meta name="twitter:card" content="{{ blog.summary }}">
+<meta name="twitter:title" content="{{blog.title}}">
+<meta name="twitter:description" content="{{ blog.summary }}">
+<meta name="twitter:creator" content="@paulofpimenta">
 
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{blog.title}}">
+<meta itemprop="description" content="{{ blog.summary }}">
+<meta itemprop="image" content="{{blog.image.url}}"> 
+
+<!-- Schema.org markup for Linkedin -->
+<meta property="og:title" content="My Shared Article Title" />
+<meta property="og:description" content="Description of shared article" />
+<meta property="og:url" content="http://example.com/my_article.html" />
+<meta property="og:image" content="http://example.com/foo.jpg" />
 
 {% block nav-item %}
 <a class="nav-item nav-link" href="{% url 'jobs' %}">Portfolio</a>
