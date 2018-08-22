@@ -28,5 +28,4 @@ urlpatterns = [
     path('', blog.views.home, name='home'),
     path('blog/', include('blog.urls')),
     path('jobs/', jobs.views.all_jobs, name='jobs'),
-    re_path(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
