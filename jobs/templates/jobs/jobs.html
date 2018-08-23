@@ -1,40 +1,48 @@
 {% extends 'base.html' %}
 <!-- Django does not extend static files and some other stuff-->
-{% load staticfiles %} 
+{% load staticfiles %}
+<!-- Custom CSS -->
+
 {% block nav-item %}
 <a class="nav-item nav-link active" href="{% url 'jobs' %}">Portfolio</a>
 <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
-{% endblock %}
+{% endblock %} 
 
 {% block content %}
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Hi, my name is Paulo :-)</h1>
-            <p class="lead text-muted">Hello, my name is Paulo Pimenta. I am a software developpper, currently living in
-                Montpellier, France. I love programming, teaching and reasearch.</p>
-            <p>
-                <a href="mailto:pfpimenta@gmail.com" class="btn btn-primary my-2">Email me</a>
-            </p>
-            <img src="{% static 'me.png' %}" />
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Hi, my name is Paulo :-)</h1>
+        <p class="lead text-muted">Hello, my name is Paulo Pimenta. I am a software developpper, currently living in Montpellier,
+            France. I love programming, teaching and reasearch.</p>
+        <p>
+            <a href="mailto:pfpimenta@gmail.com" class="btn btn-primary my-2">Email me</a>
+        </p>
+        <img src="{% static 'me.png' %}" />
+    </div>
+</section>
+
+<section class="content-section bg-primary text-white" id="portfolio">
+    <div class="container">
+        <div class="content-section-heading text-center">
+            <h3 class="text-secondary mb-0">Portfolio</h3>
+            <h2 class="mb-5">Recent Projects</h2>
         </div>
-    </section>
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ job.image.url }}" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1654db2e2b7%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1654db2e2b7%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2267%22%20y%3D%22116.7%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                            data-holder-rendered="true">
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+        <div class="row no-gutters">
+            {% for job in jobs.all %}
+            <div class="col-lg-6">
+                <a class="portfolio-item" href="#">
+                    <span class="caption">
+                        <span class="caption-content">
+                            <h2>{{ job.summary }}</h2>
+                            <p class="mb-0">{{ job.summary }}</p>
+                        </span>
+                    </span>
+                    <img class="img-fluid" src="{{ job.image.url }}" class="img-rounded" alt="Cinque Terre" height="236">
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
+</section>
 {% endblock %}
