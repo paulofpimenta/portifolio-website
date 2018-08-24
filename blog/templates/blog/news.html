@@ -1,0 +1,14 @@
+{% extends 'blog/allblogs.html' %} 
+
+{% load staticfiles %}
+
+{% block news %}
+<div class="card my-4">
+    <h5 class="card-header">News</h5>
+    <div class="card-body">
+        <img src="{% static 'logo.png' %}">
+        <h6 class="text-left pt-3">Welcome to the OuiCode GIS Blog</h6>
+        <div class="card-text">First annnouncement</div>
+    </div>
+</div>
+{% endblock %}

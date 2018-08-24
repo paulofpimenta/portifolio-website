@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 <!-- Django does not extend static files and some other stuff-->
 {% load staticfiles %}
+
 <!-- Custom CSS -->
+
 
 {% block nav-item %}
 <a class="nav-item nav-link active" href="{% url 'jobs' %}">Portfolio</a>
@@ -9,17 +11,7 @@
 {% endblock %} 
 
 {% block content %}
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Hi, my name is Paulo :-)</h1>
-        <p class="lead text-muted">Hello, my name is Paulo Pimenta. I am a software developpper, currently living in Montpellier,
-            France. I love programming, teaching and reasearch.</p>
-        <p>
-            <a href="mailto:pfpimenta@gmail.com" class="btn btn-primary my-2">Email me</a>
-        </p>
-        <img src="{% static 'me.png' %}" />
-    </div>
-</section>
+
 
 <section class="content-section bg-primary text-white" id="portfolio">
     <div class="container">

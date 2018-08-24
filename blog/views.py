@@ -7,7 +7,7 @@ from .models import Blog
 def home(request):
 
     blogs = Blog.objects
-    return render(request, 'blog/allblogs.html', {'allblogs': blogs})
+    return render(request, 'blog/news.html', {'allblogs': blogs})
 
 
 def detail(request, blog_id):
